@@ -13,7 +13,7 @@ body{
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-image: linear-gradient(#134d71, #78a7c6, white, #f7e4bf);
+  background-image: linear-gradient(#134d71, #78a7c6, #f7e4bf 99.9%);
   align-content: space-between;
 }
 h1{
@@ -27,24 +27,31 @@ h2{
 
 
 #meditate-image{
-  width: 70px;
-  height: 70px;
+  width: 60px;
+  height: 60px;
 }
-.return-message{
+.return-display{
   display: flex;
   flex-direction: row;
   background-color: white;
-  width: 700px;
-  height: 200px;
+  width: 750px;
+  height: 150px;
   justify-content: center;
   align-items: center;
   border-radius: 20px;
 }
-.submit-type{
+.submit-button{
   display: flex;
   flex-direction: row;
   align-self: flex-end;
   margin-bottom: 5px;
+  background-color: #134d71;
+  color: white;
+  width: 140px;
+  justify-content: center;
+  border-radius: 5px;
+  font-family: sans-serif;
+  font-weight: lighter;
 }
 #radio{
   width: 50%;
@@ -52,6 +59,7 @@ h2{
   justify-content: center;
   align-items: center;
   font-style: italic;
+  font-family: sans-serif;
 
 }
 
@@ -60,14 +68,28 @@ form{
   background-color: white;
   flex-wrap: wrap;
   width: 33%;
-  height: 100px;
+  height: 80px;
   border-radius: 15px;
   justify-content: center;
 }
+label{
+  margin-top: 5px;
+}
 
 .spacer1{
-  height: 200px;
+  height: 125px;
 }
 .spacer2{
   height: 100px;
+}
+
+.hidden{
+  display: none;
+}
+.return-message{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: sans-serif;
+  font-weight: lighter;
 }
