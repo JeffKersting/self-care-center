@@ -6,11 +6,20 @@
   </head>
   <body>
     <h1>✨Self Care Center✨</h1>
+    <div class="spacer1"></div>
     <h2>Which type of message?</h2>
     <form>
-      affirmation: <input type="radio"/>
-      mantra: <input type="radio"/>
+      <div id="radio">
+        <input type="radio" id="affirmation" name="type"/>
+        <label for="affirmation">affirmation</label>
+      </div>
+      <div id="radio">
+        <input type="radio" id="mantra" name="type"/>
+        <label for="mantra">mantra</label>
+      </div>
+      <button class="submit-type">Receive Message</button>
     </form>
+    <div class="spacer2"></div>
     <div class="return-message">
       <img src="./assets/meditate.svg" id="meditate-image"/>
     </div>
