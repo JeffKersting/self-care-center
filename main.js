@@ -38,15 +38,20 @@ var meditateImage = document.querySelector(".meditate-image");
 var clearButton = document.querySelector(".clear-button");
 
 
+
+
 // event listeners
 submitButton.addEventListener("click", displayMessage);
 clearButton.addEventListener("click", clearMessage);
 affirmationRadio.addEventListener("click", showSubmitButton);
 mantraRadio.addEventListener("click", showSubmitButton);
 
+
 // event handlers
 function displayMessage(){
   event.preventDefault();
+  gong.currentTime = 0;
+  gong.play();
   addFade(messageDisplay);
   addFade(clearButton);
   meditateImage.classList.add("hidden");
@@ -79,4 +84,8 @@ function addFade(element){
 }
 function clearFade(element){
   element.classList.remove("fade-in");
+}
+function playGong(){
+  console.log("test");
+  gong.play();
 }
