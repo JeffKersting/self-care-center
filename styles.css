@@ -39,18 +39,28 @@ h2{
   align-items: center;
   border-radius: 20px;
 }
+.submit-button-area{
+
+  flex-direction: row;
+  align-self: flex-end;
+  justify-content: center;
+  height:25px;
+  width: 140px;
+}
 .submit-button{
-  display: flex;
   flex-direction: row;
   align-self: flex-end;
   margin-bottom: 5px;
   background-color: #134d71;
   color: white;
   width: 140px;
+  height: 20px;
   justify-content: center;
   border-radius: 5px;
   font-family: sans-serif;
   font-weight: lighter;
+}
+
 }
 .clear-button{
   display: flex;
@@ -60,7 +70,6 @@ h2{
   border-radius: 5px;
   width: 60px;
   justify-content: center;
-
 }
 
 #radio{

@@ -37,9 +37,12 @@ var mantraRadio = document.querySelector("#mantras");
 var meditateImage = document.querySelector(".meditate-image");
 var clearButton = document.querySelector(".clear-button");
 
+
 // event listeners
 submitButton.addEventListener("click", displayMessage);
-
+clearButton.addEventListener("click", clearMessage);
+affirmationRadio.addEventListener("click", showSubmitButton);
+mantraRadio.addEventListener("click", showSubmitButton);
 
 // event handlers
 function displayMessage(){
@@ -54,8 +57,14 @@ function displayMessage(){
     return;
   }
 };
-
-
+function clearMessage(){
+  meditateImage.classList.remove("hidden");
+  clearButton.classList.add("hidden");
+  messageDisplay.innerText = "";
+}
+function showSubmitButton(){
+  submitButton.classList.remove("hidden");
+}
 
 function getRandom(array){
   return Math.ceil(Math.random() * array.length -1)
