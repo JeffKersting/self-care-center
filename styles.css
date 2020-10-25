@@ -60,6 +60,14 @@ h2{
   font-family: sans-serif;
   font-weight: lighter;
 }
+.clear-button{
+  background-color: #134d71;
+  border-radius: 5px;
+  color: white;
+  margin-top: 15px;
+  font-family: sans-serif;
+  font-weight: lighter;
+}
 
 }
 .clear-button{
