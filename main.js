@@ -47,6 +47,8 @@ mantraRadio.addEventListener("click", showSubmitButton);
 // event handlers
 function displayMessage(){
   event.preventDefault();
+  addFade(messageDisplay);
+  addFade(clearButton);
   meditateImage.classList.add("hidden");
   clearButton.classList.remove("hidden");
   if(mantraRadio.checked === true){
@@ -58,14 +60,23 @@ function displayMessage(){
   }
 };
 function clearMessage(){
+  addFade(meditateImage);
   meditateImage.classList.remove("hidden");
   clearButton.classList.add("hidden");
   messageDisplay.innerText = "";
 }
 function showSubmitButton(){
+  submitButton.classList.add("fade-in");
   submitButton.classList.remove("hidden");
 }
 
 function getRandom(array){
   return Math.ceil(Math.random() * array.length -1)
+}
+function addFade(element){
+  element.classList.add("fade-in");
+  setTimeout(clearFade, 1500, element);
+}
+function clearFade(element){
+  element.classList.remove("fade-in");
 }
