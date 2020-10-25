@@ -28,3 +28,33 @@ var mantras = [
 "The only constant is change.",
 "Onward and upward.",
 "I am the sky, the rest is weather."];
+
+
+var submitButton = document.querySelector(".submit-button");
+var messageDisplay = document.querySelector(".return-message");
+var affirmationRadio = document.querySelector("#affirmations");
+var mantraRadio = document.querySelector("#mantras");
+var meditateImage = document.querySelector(".meditate-image");
+
+// event listeners
+submitButton.addEventListener("click", displayMessage);
+
+
+// event handlers
+function displayMessage(){
+  event.preventDefault();
+  meditateImage.classList.add("hidden");
+  if(mantraRadio.checked === true){
+    messageDisplay.innerText = mantras[getRandom(mantras)];
+  } else if(affirmationRadio.checked === true){
+    messageDisplay.innerText = affirmations[getRandom(affirmations)];
+  } else {
+    return;
+  }
+};
+
+
+
+function getRandom(array){
+  return Math.ceil(Math.random() * array.length -1)
+}
