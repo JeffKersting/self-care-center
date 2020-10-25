@@ -35,6 +35,7 @@ var messageDisplay = document.querySelector(".return-message");
 var affirmationRadio = document.querySelector("#affirmations");
 var mantraRadio = document.querySelector("#mantras");
 var meditateImage = document.querySelector(".meditate-image");
+var clearButton = document.querySelector(".clear-button");
 
 // event listeners
 submitButton.addEventListener("click", displayMessage);
@@ -44,6 +45,7 @@ submitButton.addEventListener("click", displayMessage);
 function displayMessage(){
   event.preventDefault();
   meditateImage.classList.add("hidden");
+  clearButton.classList.remove("hidden");
   if(mantraRadio.checked === true){
     messageDisplay.innerText = mantras[getRandom(mantras)];
   } else if(affirmationRadio.checked === true){

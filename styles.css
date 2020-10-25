@@ -25,14 +25,13 @@ h2{
   color: white;
 }
 
-
 .meditate-image{
   width: 60px;
   height: 60px;
 }
 .return-display{
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   background-color: white;
   width: 750px;
   height: 150px;
@@ -53,6 +52,17 @@ h2{
   font-family: sans-serif;
   font-weight: lighter;
 }
+.clear-button{
+  display: flex;
+  margin-top: 15px;
+  background-color: #134d71;
+  color: white;
+  border-radius: 5px;
+  width: 60px;
+  justify-content: center;
+
+}
+
 #radio{
   width: 50%;
   display: flex;
@@ -92,4 +102,9 @@ label{
   align-items: center;
   font-family: sans-serif;
   font-weight: lighter;
+}
+.clear-message{
+  display:flex;
+  align-self: flex-end;
+  justify-content: center;
 }
