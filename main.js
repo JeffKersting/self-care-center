@@ -11,7 +11,7 @@ var affirmations = [
 "Every day I am getting healthier and stronger.",
 "I honor my body by trusting the signals that it sends me.",
 "I manifest perfect health by making smart choices."];
-
+var affirmationsShown = [];
 var mantras = [
 "Breathing in, I send myself love. Breathing out, I send love to someone else who needs it.",
 "Don’t let yesterday take up too much of today.",
@@ -28,7 +28,7 @@ var mantras = [
 "The only constant is change.",
 "Onward and upward.",
 "I am the sky, the rest is weather."];
-
+var mantrasShown = [];
 
 var submitButton = document.querySelector(".submit-button");
 var messageDisplay = document.querySelector(".return-message");
@@ -57,12 +57,36 @@ function displayMessage(){
   meditateImage.classList.add("hidden");
   clearButton.classList.remove("hidden");
   if(mantraRadio.checked === true){
-    messageDisplay.innerText = mantras[getRandom(mantras)];
-  } else if(affirmationRadio.checked === true){
-    messageDisplay.innerText = affirmations[getRandom(affirmations)];
-  } else {
-    return;
-  }
+    for(var i = 0; i < mantras.length - 1; i++){
+      var mantra = mantras[getRandom(mantras)];
+      if(mantrasShown.length == mantras.length) {
+        messageDisplay.innerText = "✨You have seen all the mantras, and will now see repeats✨";
+        clearMantras();
+        break;
+      } else if(mantrasShown.includes(mantra)){
+          continue;
+      } else {
+          messageDisplay.innerText = mantra;
+          mantrasShown.push(mantra);
+          return;
+        }
+      }
+    }else if(affirmationRadio.checked === true){
+      for(var i = 0; i < affirmations.length -1; i++){
+        var affirmation = affirmations[getRandom(affirmations)];
+        if(affirmationsShown.length == affirmations.length){
+          clearAffirmations();
+          messageDisplay.innerText = "✨You have seen all the affirmations, and will now see repeats✨";
+          break;
+        } else if(affirmationsShown.includes(affirmation)){
+            continue;
+        } else {
+            messageDisplay.innerText = affirmation;
+            affirmationsShown.push(affirmation);
+            return;
+        }
+      }
+    }
 };
 function clearMessage(){
   addFade(meditateImage);
@@ -88,4 +112,10 @@ function clearFade(element){
 function playGong(){
   console.log("test");
   gong.play();
+}
+function clearMantras(){
+  mantrasShown = [];
+}
+function clearAffirmations(){
+  affirmationsShown = [];
 }
