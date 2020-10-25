@@ -1,4 +1,6 @@
 // variable declarations
+
+
 var affirmations = [
 "I forgive myself and set myself free.",
 "I believe I can be all that I want to be.",
@@ -36,7 +38,12 @@ var affirmationRadio = document.querySelector("#affirmations");
 var mantraRadio = document.querySelector("#mantras");
 var meditateImage = document.querySelector(".meditate-image");
 var clearButton = document.querySelector(".clear-button");
-
+var addMessageDropBtn = document.querySelector("#add-message");
+var addMessageMenu = document.querySelector(".add-message-menu");
+var addMessageSubmitBtn = document.querySelector("#add-form-button");
+var addMessageInput = document.querySelector("#add-message-input");
+var addMessageAffirmation = document.querySelector("#add-affirmations");
+var addMessageMantra = document.querySelector("#add-mantras");
 
 
 
@@ -45,7 +52,8 @@ submitButton.addEventListener("click", displayMessage);
 clearButton.addEventListener("click", clearMessage);
 affirmationRadio.addEventListener("click", showSubmitButton);
 mantraRadio.addEventListener("click", showSubmitButton);
-
+addMessageDropBtn.addEventListener("click", showAddMessage);
+addMessageSubmitBtn.addEventListener("click", addMessage);
 
 // event handlers
 function displayMessage(){
@@ -118,4 +126,15 @@ function clearMantras(){
 }
 function clearAffirmations(){
   affirmationsShown = [];
+}
+function showAddMessage(){
+  addFade(addMessageMenu);
+  addMessageMenu.classList.add("opacity");
+}
+function addMessage(){
+  if(mantras.includes(addMessageInput.value) || affirmations.includes(addMessageInput.value){
+
+  } else if(addMessageAffirmation.checked === true){
+    mantras.push(addMessageInput.value);
+  } else if {}
 }

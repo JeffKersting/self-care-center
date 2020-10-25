@@ -6,15 +6,36 @@
   </head>
   <body>
     <h1>✨Self Care Center✨</h1>
-    <div class="spacer1"></div>
+    <div class="dropdown-menu">
+      <img src="./assets/meditate.svg" class="dropdown-button"/>
+      <div class="dropdown-content">
+        <div id="add-message">Add Messages</div>
+        <div id="view-messages">View Messages</div>
+        <div id="toggle-sound">Audio on/off</div>
+      </div>
+    </div>
+    <div class="add-message-menu">
+      <form id="add-message-form">
+        <div id="radio">
+          <input type="radio" id="add-affirmations" name="add"/>
+          <label for="affirmation">affirmation</label>
+        </div>
+        <div id="radio">
+          <input type="radio" id="add-mantras" name="add"/>
+          <label for="mantra">mantra</label>
+        </div>
+        <input type="text" id="add-message-input" placeholder="Enter your message">
+        <button id="add-form-button">Add Message</button>
+      </form>
+    </div>
     <h2>Which type of message?</h2>
     <form>
       <div id="radio">
-        <input type="radio" id="affirmations" name="type" class="type"/>
+        <input type="radio" id="affirmations" name="type"/>
         <label for="affirmation">affirmation</label>
       </div>
       <div id="radio">
-        <input type="radio" id="mantras" name="type" class="type"/>
+        <input type="radio" id="mantras" name="type"/>
         <label for="mantra">mantra</label>
       </div>
       <div class="submit-button-area">
