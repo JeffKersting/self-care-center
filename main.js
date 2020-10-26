@@ -32,13 +32,14 @@ var mantras = [
 "I am the sky, the rest is weather."];
 var mantrasShown = [];
 
-var submitButton = document.querySelector(".submit-button");
+var submitBtn = document.querySelector(".submit-button");
 var messageDisplay = document.querySelector(".return-message");
 var affirmationRadio = document.querySelector("#affirmations");
 var mantraRadio = document.querySelector("#mantras");
 var meditateImage = document.querySelector(".meditate-image");
-var clearButton = document.querySelector(".clear-button");
+var clearBtn = document.querySelector(".clear-button");
 var addMessageDropBtn = document.querySelector("#add-message");
+var showMessagesDropBtn = document.querySelector("#view-messages");
 var muteAudioDropBtn = document.querySelector("#toggle-sound");
 var addMessageMenu = document.querySelector(".add-message-menu");
 var addMessageSubmitBtn = document.querySelector("#add-form-button");
@@ -46,17 +47,20 @@ var addMessageExitBtn = document.querySelector("#exit-add-menu");
 var addMessageInput = document.querySelector("#add-message-input");
 var addMessageAffirmation = document.querySelector("#add-affirmations");
 var addMessageMantra = document.querySelector("#add-mantras");
+var viewMessageLists = document.querySelector(".message-list");
+var viewMessagePage = document.querySelector("#message-list-html");
 
 
 // event listeners
-submitButton.addEventListener("click", displayMessage);
-clearButton.addEventListener("click", clearMessage);
-affirmationRadio.addEventListener("click", showSubmitButton);
-mantraRadio.addEventListener("click", showSubmitButton);
+submitBtn.addEventListener("click", displayMessage);
+clearBtn.addEventListener("click", clearMessage);
+affirmationRadio.addEventListener("click", showSubmitBtn);
+mantraRadio.addEventListener("click", showSubmitBtn);
 addMessageDropBtn.addEventListener("click", showAddMessage);
 muteAudioDropBtn.addEventListener("click", muteAudio);
 addMessageSubmitBtn.addEventListener("click", addMessage);
 addMessageExitBtn.addEventListener("click", clearAddMenu);
+showMessagesDropBtn.addEventListener("click", showMessageList);
 
 // event handlers
 function displayMessage(){
@@ -64,9 +68,9 @@ function displayMessage(){
   gong.currentTime = 0;
   gong.play();
   addFade(messageDisplay);
-  addFade(clearButton);
+  addFade(clearBtn);
   meditateImage.classList.add("hidden");
-  clearButton.classList.remove("hidden");
+  clearBtn.classList.remove("hidden");
   if(mantraRadio.checked === true){
     for(var i = 0; i < mantras.length - 1; i++){
       var mantra = mantras[getRandom(mantras)];
@@ -102,12 +106,12 @@ function displayMessage(){
 function clearMessage(){
   addFade(meditateImage);
   meditateImage.classList.remove("hidden");
-  clearButton.classList.add("hidden");
+  clearBtn.classList.add("hidden");
   messageDisplay.innerText = "";
 }
-function showSubmitButton(){
-  submitButton.classList.add("fade-in");
-  submitButton.classList.remove("hidden");
+function showSubmitBtn(){
+  submitBtn.classList.add("fade-in");
+  submitBtn.classList.remove("hidden");
 }
 
 function getRandom(array){
@@ -157,6 +161,11 @@ function addMessage(){
 function clearAddMenu(){
   addFadeout(addMessageMenu);
 };
+function showMessageList(){
+  addFade(viewMessagePage);
+  setTimeout(clearFade, 1500, element);
+  viewMessageDisplay.classList.remove("hidden");
+}
 function muteAudio(){
   if(gong.muted === false){
     gong.muted = true
@@ -165,4 +174,7 @@ function muteAudio(){
     gong.muted = false
     muteAudioDropBtn.innerText = "Toggle audio off"
   }
+};
+function populateMessageList(){
+
 }

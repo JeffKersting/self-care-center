@@ -253,3 +253,33 @@ label{
 .opacity{
   opacity: 1;
 }
+.show-message-page{
+  display: flex;
+  width: 200px;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  background-color: white;
+}
+.message-list{
+  width:100px;
+  height:100px;
+  background-color: white;
+  justify-content: space-between;
+}
+#affirmation-list{
+  flex-direction: row;
+}
+#mantra-list{
+  flex-direction: row;
+}
+a{
+  text-decoration: none;
+  direction: none;
+  color: black;
+}
+a:vistied{
+  text-decoration: none;
+  direction: none;
+  color: black;
+}
