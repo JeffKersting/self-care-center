@@ -1,5 +1,3 @@
-// variable declarations
-
 
 var affirmations = [
 "I forgive myself and set myself free.",
@@ -31,7 +29,7 @@ var mantras = [
 "Onward and upward.",
 "I am the sky, the rest is weather."];
 var mantrasShown = [];
-
+var pageBody = document.querySelector("body");
 var submitBtn = document.querySelector(".submit-button");
 var messageDisplay = document.querySelector(".return-message");
 var affirmationRadio = document.querySelector("#affirmations");
@@ -41,6 +39,7 @@ var clearBtn = document.querySelector(".clear-button");
 var addMessageDropBtn = document.querySelector("#add-message");
 var showMessagesDropBtn = document.querySelector("#view-messages");
 var muteAudioDropBtn = document.querySelector("#toggle-sound");
+var exitShowMessageBtn = document.querySelector("#back-tomain")
 var addMessageMenu = document.querySelector(".add-message-menu");
 var addMessageSubmitBtn = document.querySelector("#add-form-button");
 var addMessageExitBtn = document.querySelector("#exit-add-menu");
@@ -48,10 +47,7 @@ var addMessageInput = document.querySelector("#add-message-input");
 var addMessageAffirmation = document.querySelector("#add-affirmations");
 var addMessageMantra = document.querySelector("#add-mantras");
 var viewMessageLists = document.querySelector(".message-list");
-var viewMessagePage = document.querySelector("#message-list-html");
 
-
-// event listeners
 submitBtn.addEventListener("click", displayMessage);
 clearBtn.addEventListener("click", clearMessage);
 affirmationRadio.addEventListener("click", showSubmitBtn);
@@ -61,8 +57,8 @@ muteAudioDropBtn.addEventListener("click", muteAudio);
 addMessageSubmitBtn.addEventListener("click", addMessage);
 addMessageExitBtn.addEventListener("click", clearAddMenu);
 showMessagesDropBtn.addEventListener("click", showMessageList);
+pageBody.onload = bodyFade(pageBody);
 
-// event handlers
 function displayMessage(){
   event.preventDefault();
   gong.currentTime = 0;
@@ -113,7 +109,6 @@ function showSubmitBtn(){
   submitBtn.classList.add("fade-in");
   submitBtn.classList.remove("hidden");
 }
-
 function getRandom(array){
   return Math.ceil(Math.random() * array.length -1)
 }
@@ -142,30 +137,39 @@ function clearAffirmations(){
   affirmationsShown = [];
 }
 function showAddMessage(){
+  addMessageInput.classList.remove("hidden");
   addFade(addMessageMenu);
   addMessageMenu.classList.add("opacity");
 }
 function addMessage(){
   event.preventDefault();
+
   if(mantras.includes(addMessageInput.value) || affirmations.includes(addMessageInput.value)){
     console.log("No input firing")
     return;
   } else if(addMessageAffirmation.checked === true){
     affirmations.push(addMessageInput.value);
+    sessionStorage.setItem("affirmations", JSON.stringify(affirmations));
     console.log("Affirmation if firiing")
   } else if(addMessageMantra.checked === true){
     mantras.push(addMessageInput.value);
+    sessionStorage.setItem("mantras", JSON.stringify(mantras));
     console.log("Mantra if firing")
   };
+  addMessageInput.value = "";
 }
 function clearAddMenu(){
+  event.preventDefault();
+  addMessageInput.classList.add("hidden");
   addFadeout(addMessageMenu);
+  addMessageMenu.classList.remove("opacity");
 };
 function showMessageList(){
-  addFade(viewMessagePage);
-  setTimeout(clearFade, 1500, element);
+  addFade(viewMessageLists);
+  setTimeout(clearFade, 1500, viewMessageLists);
   viewMessageDisplay.classList.remove("hidden");
-}
+  populateMessageList();
+};
 function muteAudio(){
   if(gong.muted === false){
     gong.muted = true
@@ -177,4 +181,9 @@ function muteAudio(){
 };
 function populateMessageList(){
 
+  viewMessageLists.innerText = "hello";
+};
+function bodyFade(element){
+  element.classList.add("fade-in");
+  setTimeout(clearFadeout, 1500, element);
 }

@@ -24,14 +24,14 @@ h2{
   font-family: Quicksand;
   color: white;
 }
-
+button{
+  outline: 0;
+}
 .meditate-image{
   width: 60px;
   height: 60px;
   margin-top: 10px;
 }
-
-
 .submit-button-area{
   flex-direction: row;
   align-self: flex-end;
@@ -57,7 +57,6 @@ h2{
   background-color: #78a7c6;
   cursor: pointer;
 }
-
 .clear-button{
   display:flex;
   background-color: #134d71;
@@ -74,8 +73,6 @@ h2{
   background-color: #78a7c6;
   cursor: pointer;
 }
-
-
 #radio{
   width: 50%;
   display: flex;
@@ -84,7 +81,6 @@ h2{
   font-style: italic;
   font-family: sans-serif;
 }
-
 form{
   display: flex;
   background-color: white;
@@ -97,12 +93,9 @@ form{
 label{
   margin-top: 5px;
 }
-
-
 .spacer2{
   height: 100px;
 }
-
 .hidden{
   display: none;
 }
@@ -125,7 +118,6 @@ label{
   font-size: 20px;
   text-align: center;
 }
-
 .fade-in{
   animation: fadein ease 2.5s;
 }
@@ -134,25 +126,21 @@ label{
   100% {opacity:100;}
 }
 .fade-out{
-  animation: fadeout ease 2.5s;
+  animation: fadeout ease 1.5s;
 }
 @keyframes fadeout {
   0% {opacity: 100;}
   100% {opacity: 0;}
 }
-
 .clear-message{
   display:flex;
   align-self: flex-end;
   justify-content: center;
 }
-
-
 .dropdown-menu{
   display: flex;
   flex-direction: column;
   justify-content: center;
-
 }
 .dropdown-button{
   height: 20px;
@@ -171,7 +159,7 @@ label{
   opacity: 0;
 }
 .dropdown-menu:hover .dropdown-content{
-  animation: fadeIn ease 2.5s;
+  animation: fadein ease 2.5s;
   opacity: 1;
 }
 #add-message:hover {
@@ -183,6 +171,7 @@ label{
 #view-messages:hover {
   box-shadow: inset 0px 0px 3px;
   cursor: pointer;
+  border-radius: 0px;
 }
 #toggle-sound:hover {
   box-shadow: inset 0px 0px 3px;
@@ -253,25 +242,45 @@ label{
 .opacity{
   opacity: 1;
 }
+.no-opacity{
+  opacity: 0;
+}
 .show-message-page{
   display: flex;
-  width: 200px;
+  width: 90%;
+  margin-left: 5%;
+  margin-right: 5%;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
   background-color: white;
 }
 .message-list{
-  width:100px;
-  height:100px;
+  width:46%;
+  margin-left: 2%;
+  margin-right: 2%;
   background-color: white;
-  justify-content: space-between;
+  border-radius: 15px;
+  text-align: center;
+  font-family: sans-serif;
+  align-self: flex-start;
 }
-#affirmation-list{
-  flex-direction: row;
+#back-to-main{
+  display:flex;
+  background-color: #134d71;
+  border-radius: 5px;
+  color: white;
+  margin-top: 15px;
+  font-family: sans-serif;
+  font-weight: lighter;
+  width:100px;
+  margin-bottom: 5px;
+  justify-content: center;
+  align-self: flex-end;
 }
-#mantra-list{
-  flex-direction: row;
+#back-to-main:hover{
+  box-shadow: inset 0px 0px 3px;
+  cursor: pointer;
 }
 a{
   text-decoration: none;
