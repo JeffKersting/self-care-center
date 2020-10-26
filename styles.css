@@ -31,16 +31,7 @@ h2{
   margin-top: 10px;
 }
 
-.return-display{
-  display: flex;
-  flex-direction: column;
-  background-color: white;
-  width: 750px;
-  height: 150px;
-  justify-content: center;
-  align-items: center;
-  border-radius: 20px;
-}
+
 .submit-button-area{
   flex-direction: row;
   align-self: flex-end;
@@ -115,6 +106,16 @@ label{
 .hidden{
   display: none;
 }
+.return-display{
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  width: 750px;
+  height: 150px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+}
 .return-message{
   display: flex;
   justify-content: center;
@@ -124,13 +125,22 @@ label{
   font-size: 20px;
   text-align: center;
 }
+
 .fade-in{
-  animation: fadeIn ease 2.5s;
+  animation: fadein ease 2.5s;
 }
-@keyframes fadeIn {
+@keyframes fadein {
   0% {opacity: 0;}
   100% {opacity:100;}
 }
+.fade-out{
+  animation: fadeout ease 2.5s;
+}
+@keyframes fadeout {
+  0% {opacity: 100;}
+  100% {opacity: 0;}
+}
+
 .clear-message{
   display:flex;
   align-self: flex-end;
@@ -200,6 +210,20 @@ label{
   justify-content: center;
 }
 #add-form-button{
+  display:flex;
+  background-color: #134d71;
+  border-radius: 5px;
+  color: white;
+  margin-top: 15px;
+  font-family: sans-serif;
+  font-weight: lighter;
+  width:100px;
+  margin-bottom: 5px;
+  justify-content: center;
+  align-self: flex-end;
+  transition: all 0.7s;
+}
+#exit-add-menu{
   display:flex;
   background-color: #134d71;
   border-radius: 5px;

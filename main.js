@@ -39,12 +39,13 @@ var mantraRadio = document.querySelector("#mantras");
 var meditateImage = document.querySelector(".meditate-image");
 var clearButton = document.querySelector(".clear-button");
 var addMessageDropBtn = document.querySelector("#add-message");
+var muteAudioDropBtn = document.querySelector("#toggle-sound");
 var addMessageMenu = document.querySelector(".add-message-menu");
 var addMessageSubmitBtn = document.querySelector("#add-form-button");
+var addMessageExitBtn = document.querySelector("#exit-add-menu");
 var addMessageInput = document.querySelector("#add-message-input");
 var addMessageAffirmation = document.querySelector("#add-affirmations");
 var addMessageMantra = document.querySelector("#add-mantras");
-
 
 
 // event listeners
@@ -53,7 +54,9 @@ clearButton.addEventListener("click", clearMessage);
 affirmationRadio.addEventListener("click", showSubmitButton);
 mantraRadio.addEventListener("click", showSubmitButton);
 addMessageDropBtn.addEventListener("click", showAddMessage);
+muteAudioDropBtn.addEventListener("click", muteAudio);
 addMessageSubmitBtn.addEventListener("click", addMessage);
+addMessageExitBtn.addEventListener("click", clearAddMenu);
 
 // event handlers
 function displayMessage(){
@@ -114,8 +117,15 @@ function addFade(element){
   element.classList.add("fade-in");
   setTimeout(clearFade, 1500, element);
 }
+function addFadeout(element){
+  element.classList.add("fade-out");
+  setTimeout(clearFadeout, 1500, element);
+}
 function clearFade(element){
   element.classList.remove("fade-in");
+}
+function clearFadeout(element){
+  element.classList.remove("fade-out");
 }
 function playGong(){
   console.log("test");
@@ -132,9 +142,27 @@ function showAddMessage(){
   addMessageMenu.classList.add("opacity");
 }
 function addMessage(){
-  if(mantras.includes(addMessageInput.value) || affirmations.includes(addMessageInput.value){
-
+  event.preventDefault();
+  if(mantras.includes(addMessageInput.value) || affirmations.includes(addMessageInput.value)){
+    console.log("No input firing")
+    return;
   } else if(addMessageAffirmation.checked === true){
+    affirmations.push(addMessageInput.value);
+    console.log("Affirmation if firiing")
+  } else if(addMessageMantra.checked === true){
     mantras.push(addMessageInput.value);
-  } else if {}
+    console.log("Mantra if firing")
+  };
+}
+function clearAddMenu(){
+  addFadeout(addMessageMenu);
+};
+function muteAudio(){
+  if(gong.muted === false){
+    gong.muted = true
+    muteAudioDropBtn.innerText = "Toggle audio on"
+  } else if (gong.muted === true){
+    gong.muted = false
+    muteAudioDropBtn.innerText = "Toggle audio off"
+  }
 }
