@@ -1,11 +1,4 @@
-/* font-family: 'Quicksand', sans-serif;
-COLORS
-light-yellow - #f7e4bf;
-light-blue - #78a7c6;
-dark-blue - #134d71;
-white - #ffffff;
-black - #000000;
-*/
+
 html {
   height: 100%;
 }
@@ -27,11 +20,7 @@ h2{
 button{
   outline: 0;
 }
-.meditate-image{
-  width: 60px;
-  height: 60px;
-  margin-top: 10px;
-}
+
 .submit-button-area{
   flex-direction: row;
   align-self: flex-end;
@@ -109,6 +98,11 @@ label{
   align-items: center;
   border-radius: 20px;
 }
+.meditate-image{
+  width: 60px;
+  height: 60px;
+  margin-top: 10px;
+}
 .return-message{
   display: flex;
   justify-content: center;
@@ -118,6 +112,7 @@ label{
   font-size: 20px;
   text-align: center;
 }
+
 .fade-in{
   animation: fadein ease 2.5s;
 }
@@ -131,11 +126,6 @@ label{
 @keyframes fadeout {
   0% {opacity: 100;}
   100% {opacity: 0;}
-}
-.clear-message{
-  display:flex;
-  align-self: flex-end;
-  justify-content: center;
 }
 .dropdown-menu{
   display: flex;
