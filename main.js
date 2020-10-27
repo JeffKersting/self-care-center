@@ -152,11 +152,9 @@ function addMessage(){
   } else if(addMessageAffirmation.checked === true){
     affirmations.push(addMessageInput.value);
     sessionStorage.setItem("affirmations", JSON.stringify(affirmations));
-    console.log("Affirmation if firiing")
   } else if(addMessageMantra.checked === true){
     mantras.push(addMessageInput.value);
     sessionStorage.setItem("mantras", JSON.stringify(mantras));
-    console.log("Mantra if firing")
   };
   addMessageInput.value = "";
 }
