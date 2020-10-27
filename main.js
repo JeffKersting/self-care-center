@@ -12,7 +12,6 @@ var affirmations = [
 "I honor my body by trusting the signals that it sends me.",
 "I manifest perfect health by making smart choices."];
 var affirmationsShown = [];
-sessionStorage.setItem("affirmations", JSON.stringify(affirmations));
 var mantras = [
 "Breathing in, I send myself love. Breathing out, I send love to someone else who needs it.",
 "Don’t let yesterday take up too much of today.",
@@ -29,7 +28,6 @@ var mantras = [
 "The only constant is change.",
 "Onward and upward.",
 "I am the sky, the rest is weather."];
-sessionStorage.setItem("mantras", JSON.stringify(mantras));
 var mantrasShown = [];
 var pageBody = document.querySelector("body");
 var submitBtn = document.querySelector(".submit-button");
